@@ -14,13 +14,16 @@ body{
 #header{
     width: 100%;
     height: 100vh;
-    background-image: url("./assets/images/My_photo.jpg");
-    background-size: 50%;
+    background-image: url("./assets/images/AI_image.png");
+    /* background-size: 50%; */
     background-repeat: no-repeat;
     background-position:right;
     background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent black overlay */
     background-blend-mode: overlay;
+    background-size: cover; /* Ensure full coverage */
+    background-attachment: fixed; /* Parallax effect */
 }
+
 .container{
     padding: 10px 10%;
 }
@@ -30,11 +33,9 @@ nav{
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px 0;
-width: 100%;
-
-
-        
+width: 100%;     
 }
+
 .left {
     
     font-size: 30px; /* Adjust font size */
@@ -283,7 +284,7 @@ height: 100%;
 .social-icons a{
     text-decoration: none;
     font-size: 30px;
-    margin-right: 15px;
+    margin-right: 25px;
     color: #ababab;
     display: inline-block;
     transition: transform 0.5s;
@@ -326,25 +327,58 @@ form .btn2{
 }
 /*-----------css for small screens--------------------*/
 
-nav.fas{
+nav .fa-solid{
     display: none;
 }
 @media only screen and (max-width: 600px){
 #header{
-    background-image: url();
+    background-image: url(assets/images/AI_image.png);
 }
 .header-text{
     margin-top: 100%;
-    font-size: 16px;
+    font-size: 10px;
 }
 .header-text h1{
     font-size: 30px;
 }
-nav.fas{
+
+/* nav .fa-solid{
     display: block;
     font-size: 25px;
+} */
+nav .fa-solid {
+    display: block;
+    font-size: 25px;
+    position: absolute; /* Position the icon relative to the screen */
+    top: 15px; /* Adjust vertical alignment */
+    right: 20px; /* Align to the right side */
+    cursor: pointer; /* Make it clickable */
+    z-index: 998; /* Ensure it's on top of other elements */
 }
-nav ul{
+nav ul {
+    background: #ff004f;
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: 999; /* Ensure menu appears under the icon */
+    transition: right 0.5s;
+}
+
+nav ul li {
+    display: block;
+    margin: 25px;
+}
+
+nav ul .fa-solid {
+    position: absolute;
+    top: 25px;
+    right: 20px; /* Align close icon correctly */
+    cursor: pointer;
+}
+/* nav ul{
     background: #ff004f;
     position: fixed;
     top: 0;
@@ -360,12 +394,12 @@ nav ul li{
     margin: 25px;
 
 }
-nav ul .fas{
+nav ul .fa-solid{
     position: absolute;
     top: 25px;
-    left: 25px;
+    right: 20px;
     cursor: pointer;
-}
+} */
 .sub-title{
     font-size: 40px;
 }
